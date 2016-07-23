@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace的值为Dao的全类名（包名+类名） -->
+<mapper namespace="com.joshuait.sbswf.dao.CommentMapper">
+
+	<resultMap id="commentMap" type="com.joshuait.sbswf.entity.Comment">
+		<id column="comment_id" property="commentId" />
+		<result column="comment_post_id" property="commentPostId" />
+		<result column="comment_author" property="commentAuthor" />
+		<result column="comment_author_email" property="commentAuthorEmail" />
+		<result column="comment_author_url" property="commentAuthorUrl" />
+		<result column="comment_author_ip" property="commentAuthorIp" />
+		<result column="comment_date" property="commentDate" />
+		<result column="comment_date_gmt" property="commentDateGmt" />
+		<result column="comment_content" property="commentContent" />
+		<result column="comment_karma" property="commentKarma" />
+		<result column="comment_approved" property="commentApproved" />
+		<result column="comment_agent" property="commentAgent" />
+		<result column="comment_type" property="commentType" />
+		<result column="comment_parent" property="commentParent" />
+		<result column="user_id" property="userId" />
+
+	</resultMap>
+
+	<select id="getById" parameterType="long" resultMap="commentMap">
+		select *
+		from
+		wp_comments where comment_id =#{commentId}
+	</select>
+
+	<delete id="delete">
+		DELETE FROM wp_comments WHERE comment_id
+		=#{commentId}
+	</delete>
+
+	<update id="update" parameterType="com.joshuait.sbswf.entity.Comment">
+		update wp_comments
+		<set>
+
+			<if test="commentPostId     != null">comment_post_id = #{commentPostId },</if>
+			<if test="commentAuthor     != null">comment_author = #{commentAuthor },</if>
+			<if test="commentAuthorEmail!= null">comment_author_email = #{commentAuthorEmail },</if>
+			<if test="commentAuthorUrl  != null">comment_author_url = #{commentAuthorUrl },</if>
+			<if test="commentAuthorIp   != null">comment_author_ip = #{commentAuthorIp },</if>
+			<if test="commentDate      != null">comment_date = #{commentDate },</if>
+			<if test="commentDateGmt   != null">comment_date_gmt = #{commentDateGmt},</if>
+			<if test="commentContent    != null">comment_content = #{commentContent},</if>
+			<if test="commentKarma     != null">comment_karma = #{commentKarma },</if>
+			<if test="commentApproved   != null">comment_approved = #{commentApproved },</if>
+			<if test="commentAgent      != null">comment_agent = #{commentAgent },</if>
+			<if test="commentType       != null">comment_type = #{commentType },</if>
+			<if test="commentParent     != null">comment_parent = #{commentParent },</if>
+			<if test="userId          != null">user_id = #{userId}</if>
+
+		</set>
+		where comment_id = #{commentId}
+	</update>
+
+	<insert id="insert" parameterType="com.joshuait.sbswf.entity.Comment"
+		useGeneratedKeys="true" keyProperty="commentId">
+		insert into wp_comments
+		(comment_post_id,
+		comment_author,
+		comment_author_email,
+		comment_author_url,
+		comment_author_ip,
+		comment_date,
+		comment_date_gmt,
+		comment_content,
+		comment_karma,
+		comment_approved,
+		comment_agent,
+		comment_type,
+		comment_parent,
+		user_id)
+		values
+		(#{commentPostId},
+		#{commentAuthor },
+		#{commentAuthorEmail},
+		#{commentAuthorUrl },
+		#{commentAuthorIp },
+		#{commentDate },
+		#{commentDateGmt },
+		#{commentContent },
+		#{commentKarma },
+		#{commentApproved },
+		#{commentAgent },
+		#{commentType },
+		#{commentParent },
+		#{userId })
+	</insert>
+
+	<select id="search" parameterType="com.joshuait.sbswf.entity.Comment"
+		resultMap="commentMap">
+		select * from wp_comments
+		<where>
+			<if test="commentId         != null and commentId !=  ''">
+				OR comment_id like #{commentId}
+			</if>
+			<if test="commentPostId     != null and commentPostId !=  ''">
+				OR comment_post_id like #{commentPostId }
+			</if>
+			<if test="commentAuthor     != null and commentAuthor !=  ''">
+				OR comment_author like #{commentAuthor }
+			</if>
+			<if test="commentAuthorEmail != null and commentAuthorEmail !=  ''">
+				OR comment_author_email like #{commentAuthorEmail}
+			</if>
+			<if test="commentAuthorUrl  != null and commentAuthorUrl !=  ''">
+				OR comment_author_url like #{commentAuthorUrl }
+			</if>
+			<if test="commentAuthorIp   != null and commentAuthorIp !=  ''">
+				OR comment_author_ip like #{commentAuthorIp }
+			</if>
+			<if test="commentDate       != null and commentDate !=  ''">
+				OR comment_date like #{commentDate }
+			</if>
+			<if test="commentDateGmt    != null and commentDateGmt !=  ''">
+				OR comment_date_gmt like #{commentDateGmt }
+			</if>
+			<if test="commentContent    != null and commentContent !=  ''">
+				OR comment_content like #{commentContent }
+			</if>
+			<if test="commentKarma      != null and commentKarma !=  ''">
+				OR comment_karma like #{commentKarma }
+			</if>
+			<if test="commentApproved   != null and commentApproved !=  ''">
+				OR comment_approved like #{commentApproved }
+			</if>
+			<if test="commentAgent      != null and commentAgent !=  ''">
+				OR comment_agent like #{commentAgent }
+			</if>
+			<if test="commentType       != null and commentType !=  ''">
+				OR comment_type like #{commentType }
+			</if>
+			<if test="commentParent     != null and commentParent !=  ''">
+				OR comment_parent like #{commentParent }
+			</if>
+			<if test="userId            != null and userId !=  ''">
+				OR user_id like #{userId }
+			</if>
+
+		</where>
+	</select>
+
+</mapper>

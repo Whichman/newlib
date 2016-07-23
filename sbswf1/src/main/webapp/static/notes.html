@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>笔记</title>
+    <style>
+    </style>
+    <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/mycss.css">
+    <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <link type="text/css" href="bootstrap-3.3.5-dist/css/zzsc.css" rel="stylesheet" />
+</head>
+<body>
+<!--导航栏-->
+    <nav id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">
+                    <img src="bootstrap-3.3.5-dist/image/logo.png" style="display:block">
+                    <span>前端网</span>
+                </a>
+                <ul id="shortcut_nav" class="nav navbar-nav navbar-right" >
+                    <li class="g">
+                        <div class="search" action="#" method="post">
+                            <input id="nav_search" type="search" value placeholder="搜索">
+                        </div>
+                    </li>
+                    <li>
+                        <a href="member.html">登陆</a>
+                    </li>
+                    <li>
+                        <a href="http://www.w3cfuns.com/member/register">注册</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">首页</a></li>
+                    <li class="active"><a href="notes.html">笔记</a></li>
+                    <li><a href="wht.html">话题</a></li>
+                    <li><a href="feed.html">发现</a></li>
+                    <li><a href="http://www1.w3cfuns.com/course.php">教程</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<!--中间整块内容-->
+    <div class="container-fluid">
+        <div class="row">
+            <!--笔记-->
+            <div class="col-xs-12 col-md-9">
+                <h3 class="titlebar" style="margin-top: 0;"><span class="glyphicon glyphicon-option-vertical">笔记</span></h3>
+                <div id="biji">
+                    <dl class="qwer">
+                        <dt>分类：</dt>
+                        <dd>
+                            <a href="notes.html" class="selected">全部</a>
+                            <a href="notes.html">HTML/CSS</a>
+                            <a href="notes.html">JavaScript</a>
+                            <a href="notes.html">Node.js</a>
+                            <a href="notes.html">手机移动</a>
+                            <a href="notes.html">前端安全</a>
+                            <a href="notes.html">性能优化</a>
+                            <a href="notes.html">类库框架</a>
+                            <a href="notes.html">开发调试</a>
+                            <a href="notes.html">浏览器</a>
+                            <a href="notes.html">面试经验</a>
+                        </dd>
+                    </dl>
+                    <dl class="qwer">
+                        <dt>类型：</dt>
+                        <dd>
+                            <a href="notes.html" class="selected">全部</a>
+                            <a href="notes.html">随笔</a>
+                            <a href="notes.html">译文</a>
+                            <a href="notes.html">教程</a>
+                        </dd>
+                    </dl>
+                    <dl class="qwer">
+                        <dt>属性：</dt>
+                        <dd>
+                            <a href="notes.html" class="selected">全部</a>
+                            <a href="notes.html">原创</a>
+                            <a href="notes.html">转载</a>
+                        </dd>
+                    </dl>
+                    <dl class="qwer">
+                        <dt>排序：</dt>
+                        <dd>
+                            <a href="notes.html" class="selected">最新发布</a>
+                            <a href="notes.html">浏览最多</a>
+                            <a href="notes.html">评论最多</a>
+                            <a href="notes.html">点赞最多</a>
+                            <a href="notes.html">收藏最多</a>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading  clearfix">
+                        <img src="bootstrap-3.3.5-dist/image/33.jpg" >
+                        <h4><a class="zuoze" href="">水末</a><span> | </span><a class="biji" href="note1.html">我的2016网站梦0.0.4 （选型结束keystone）</a></h4>
+                        <p>发布于 2 小时前&nbsp&nbsp&nbsp 浏览：24 &nbsp&nbsp&nbsp类型：
+                            <a style="color: #bdc3c7" onmouseover="$(this).tooltip('show')" data-toggle="tooltip" data-placement="top" title="查看属性：“原创”下的所有笔记">
+                                原创 </a>
+                             -
+                            <a style="color: #bdc3c7" onmouseover="$(this).tooltip('show')" data-toggle="tooltip" data-placement="top" title="查看类型：“随笔”下的所有笔记">
+                                随笔 </a>
+                            &nbsp&nbsp&nbsp分类：
+                           <a style="color: #bdc3c7" onmouseover="$(this).tooltip('show')" data-toggle="tooltip" data-placement="top" title="查看系统分类：“Node.js”下的所有笔记">
+                                Node.js </a>
+
+                        </p>
+                    </div>
+                    <div class="panel-body">
+                        1，好久没动啦。瞎忙呀。。。要网站博客赶紧上线，自己一个个代码码太不切实际，而且node又没入门，
+                        这样下去今年是完不成啦。2，前段时间用了会jade，还是习惯换行，回车+tab键。。。而jade，决不允许
+                        tab，只能两个空格，还写一半的标签。向来习惯写静态页面，然后再进行数据填充。这要填充，还得写套
+                        jade，真是废了。放 ...
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading  clearfix">
+                        <img src="bootstrap-3.3.5-dist/image/66.jpg" >
+                        <h4>booogle<span> | </span>npm install 显示安装进度</h4>
+                        <p>发布于 2 小时前&nbsp&nbsp&nbsp 浏览：19 &nbsp&nbsp&nbsp类型：原创 - 随笔 &nbsp&nbsp&nbsp分类：Node.js</p>
+                    </div>
+                    <div class="panel-body">
+                        npm安装过程一直在转动“/”，输入以下命名即可查看详细进度~~~~~~~~~~~~~~~~~~~~~~~cmd命令
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~npmconfigsetloglevel=http ...
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading  clearfix">
+                        <img src="bootstrap-3.3.5-dist/image/88.jpg" >
+                        <h4>lisa2moon<span> | </span>nodejs 001</h4>
+                        <p>发布于2 小时前&nbsp&nbsp&nbsp 浏览：17 &nbsp&nbsp&nbsp类型：原创 - 随笔 &nbsp&nbsp&nbsp分类：Node.js</p>
+                    </div>
+                    <div class="panel-body">
+                        资料：7-days-nodejs内置模块node_modules目录NODE_PATH环境变量JS模块的基本单位是单个JS文件，
+                        但复杂些的模块往往由多个子模块组成。可以把由多个子模块组成的大模块称做包，并把所有子模块
+                        放在同一个目录里。模块--〉包index.js->package.json教我们怎么把nodejs的程序变得像命令一样
+                        简介。教 ...
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading  clearfix">
+                        <img src="bootstrap-3.3.5-dist/image/125.jpg" >
+                        <h4>mengchen129<span> | </span>用原生JS实现jQuery的事件代理</h4>
+                        <p>发布于 4 小时前&nbsp&nbsp&nbsp 浏览：66 &nbsp&nbsp&nbsp类型：原创 - 随笔 &nbsp&nbsp&nbsp分类：JavaScript</p>
+                    </div>
+                    <div class="panel-body">
+                        事件代理的基本概念：利用js事件冒泡的原理，将事件处理函数绑定在父级节点上，
+                        即可监听其所有子元素冒泡上来的事件（子元素单独绑定阻止冒泡的事件除外），
+                        即使这些子元素是已经存在的或者是将来生成的。这样可以减少事件绑定，减少内存占用，
+                        提升性能。jQuery事件代理：jQuery使用delegate函数实现事件代理，常用 ...
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading  clearfix">
+                        <img src="bootstrap-3.3.5-dist/image/130.jpg" >
+                        <h4>fanbuxie<span> | </span>margin负值的各种用法（部分转载部分自己总结的）</h4>
+                        <p>发布于 3 天前&nbsp&nbsp&nbsp 浏览：262 &nbsp&nbsp&nbsp类型：原创 - 随笔 &nbsp&nbsp&nbsp分类：HTML/CSS</p>
+                    </div>
+                    <div class="panel-body panel-body111">
+                        本文介绍了css负边距在普通文档流中的作用和效果、左和右的css负边距对元素宽度的影响、
+                        css负边距对浮动元素的影响、css负边距对绝对定位元素的影响。偶然浏览到这篇文章，
+                        感觉非常好，于是分享到这里，跟大家一起学习。css负边距在普通文档流中的作用和效果
+                        那些没有脱离文档流的元素（指不是浮动元素也不是绝对定位、固 ...
+                    <div class="tupian"><img src="bootstrap-3.3.5-dist/image/132.png"></div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading  clearfix">
+                        <img src="bootstrap-3.3.5-dist/image/126.jpg" >
+                        <h4>booolgle<span> | </span>JS设计模式之模板模式 Tea（诗）and（和）Coffee（远方）</h4>
+                        <p>发布于 4 小时前&nbsp&nbsp&nbsp 浏览：29 &nbsp&nbsp&nbsp类型：转载 - 随笔 &nbsp&nbsp&nbsp分类：JavaScript</p>
+                    </div>
+                    <div class="panel-body">
+                        模板模式是一种只需用继承就可以实现的非常简单的模式。模板方法模式由两部分结构组成，
+                        第一部分是抽象父类，第二部分是具体子类。顾名思义，下面我们由具体例子看看。CoffeeorTea
+                        咖啡与茶是经典例子，经常用来讲解模板方法模式。首先我们来泡一杯咖啡，步骤如下：把水煮沸
+                        用沸水冲泡咖啡把咖啡倒进杯子加糖和牛奶 ...
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading  clearfix">
+                        <img src="bootstrap-3.3.5-dist/image/127.jpg" >
+                        <h4>xiaoqiang998<span> | </span>这是个很长的故事，讲述的是一名电竞玩家转行文字编辑后的程序历程与开发感悟。</h4>
+                        <p>发布于 6 小时前&nbsp&nbsp&nbsp 浏览：60 &nbsp&nbsp&nbsp类型：转载 - 随笔 &nbsp&nbsp&nbsp分类：HTML/CSS</p>
+                    </div>
+                    <div class="panel-body">
+                        作者：igetit链接：https://www.zhihu.com/question/34388831/answer/61429937来源：
+                        知乎著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+                        目录-----------------序引言（一）引言（二）一，奇葩的转行二，第1个电商项目三，
+                        一个阶段小结四，第2个电商项目。五，第3个电商项目（上）六 ...
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading  clearfix">
+                        <img src="bootstrap-3.3.5-dist/image/128.jpg" >
+                        <h4>前端小白白<span> | </span>src和href傻傻分不清</h4>
+                        <p>发布于 6 小时前&nbsp&nbsp&nbsp 浏览：106 &nbsp&nbsp&nbsp类型：转载 - 随笔 &nbsp&nbsp&nbsp分类：HTML/CSS</p>
+                    </div>
+                    <div class="panel-body">
+                        在项目开发的过程中，很多东西我们经常用，但不清楚他们究竟有什么区别，
+                        比如html中的src和hrefsrc是引入，是页面必不可少的一部分，用于替换当前元素，
+                        如img、script、iframe等元素上使用；href是引用，是与该页面有关联，用于在当
+                        前文档和引用资源之间确立联系，如link和a等标签上使用。src是source的缩写，指向外部 ...
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading  clearfix">
+                        <img src="bootstrap-3.3.5-dist/image/22.jpg" >
+                        <h4>0510_zi<span> | </span>第一阶段目标</h4>
+                        <p>发布于 1 天前&nbsp&nbsp&nbsp 浏览：66 &nbsp&nbsp&nbsp类型：原创 - 随笔 &nbsp&nbsp&nbsp分类：HTML/CSS</p>
+                    </div>
+                    <div class="panel-body">
+                        做了5年左右的前端，都在一个公司，很安于享乐，一直想要成长，可是各种因素不能让我静下心来学习。
+                        对于日新月异的新知识铺面而来。觉得走出这个公司需要具备相应的竞争力。我必须得成长。
+                        所以从此刻起我需要给自己制定目标并且完成它。从而走出这个公司在工资和能力的平衡。
+                        第一阶段掌握lesssass了解node ...
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading  clearfix">
+                        <img src="bootstrap-3.3.5-dist/image/129.jpg" >
+                        <h4>aren945<span> | </span>JavaScript内置对象</h4>
+                        <p>发布于 2 天前&nbsp&nbsp&nbsp 浏览：240 &nbsp&nbsp&nbsp类型：原创 - 随笔 &nbsp&nbsp&nbsp分类：JavaScript</p>
+                    </div>
+                    <div class="panel-body panel-body111">
+                        前言JavaScript中有三组内置对象，分别是浏览器对象模型(BOM)、文档对象模型(DOM)
+                        以及全局JavaScript对象。本文主要讲浏览器对象模型和全局JavaScript对象一浏览器
+                        对象模型(BOM)什么是BOM浏览器对象模型听其名就知道是创建浏览器或窗口的模型,BOM
+                        提供了独立于内容而与浏览器进行交互的对象，由于BOM主要是用于管理 ...
+                    <img class="tupian" src="bootstrap-3.3.5-dist/image/131.png">
+                    </div>
+                </div>
+                <nav style="text-align: center;">
+                    <ul class="pagination pagination-lg">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">上一页</span>
+                            </a>
+                        </li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">下一页</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!--发布笔记、推荐笔记、火热笔记、笔记达人-->
+            <div class="col-xs-6 col-md-3">
+                <div class="row">
+                    <!--发布笔记-->
+                    <div class="col-xs-6 col-md-12" style="margin: 0 0 10px;">
+                        <a href="#" class="btn btn-primary btn-lg btn-block active" role="button">发布笔记</a>
+                    </div>
+                    <div class="col-xs-6 col-md-12 leixing">
+                        总笔记：
+                        <span>19,498</span>
+                        ，总阅读：
+                        <span>12,975,524</span>
+                    </div>
+                    <!--空白-->
+                    <div class="col-xs-6 col-md-12" style="height:250px;">
+                    </div>
+                    <!--推荐笔记-->
+                    <div class="col-xs-6 col-md-12">
+                        <h3 class="titlebar" style="margin-top: 0;">
+                            <span class="glyphicon glyphicon-option-vertical">推荐笔记</span>
+                        </h3>
+                        <ol class="list-group">
+                            <a href="" class="list-group-item"><i class="toprank_blue">1</i> 基于JQuery实现的 web网页虚拟桌面</a>
+                            <a href="" class="list-group-item"><i class="toprank_blue">2</i> web前端35个jQuery小技巧！</a>
+                            <a href="" class="list-group-item"><i class="toprank_blue">3</i> 微信红包图片！</a>
+                            <a href="" class="list-group-item"><i>4</i> 模仿腾讯企鹅做的一个头像</a>
+                            <a href="" class="list-group-item"><i>5</i> 还在为无缝滚动而困扰？是时候彻底get</a>
+                            <a href="" class="list-group-item"><i>6</i> 大白!抱抱!（简单的css动画）</a>
+                            <a href="" class="list-group-item"><i>7</i> 网页进度条</a>
+                            <a href="" class="list-group-item"><i>8</i> 轮播图（前端小白做的第一个轮播图</a>
+                            <a href="" class="list-group-item"><i>9</i> 关于使用vertical-align使图片垂直居中</a>
+                            <a href="" class="list-group-item"><i>10</i> 鼠标箭头变成百度图片</a>
+                        </ol>
+                    </div>
+                    <!--图片-->
+                    <div class="col-xs-6 col-md-12" style="height:250px;margin-bottom: 20px;text-align: center;">
+                        <img src="bootstrap-3.3.5-dist/image/456.jpg">
+                    </div>
+                    <!--火热笔记-->
+                    <div class="col-xs-6 col-md-12">
+                        <h3 class="titlebar" style="margin-top: 0;">
+                            <span class="glyphicon glyphicon-option-vertical">火热笔记</span>
+                        </h3>
+                        <ol class="list-group">
+                            <a href="" class="list-group-item"><i class="toprank_orange">1</i> 基于JQuery实现的 web网页虚拟桌面</a>
+                            <a href="" class="list-group-item"><i class="toprank_orange">2</i> 大白!抱抱!（简单的css动画）</a>
+                            <a href="" class="list-group-item"><i class="toprank_orange">3</i> 还在为无缝滚动而困扰？是时候彻底get</a>
+                            <a href="" class="list-group-item"><i>4</i> 模仿腾讯企鹅做的一个头像</a>
+                            <a href="" class="list-group-item"><i>5</i> 轮播图（前端小白做的第一个轮播图</a>
+                            <a href="" class="list-group-item"><i>6</i> web前端35个jQuery小技巧！</a>
+                            <a href="" class="list-group-item"><i>7</i> 网页进度条</a>
+                            <a href="" class="list-group-item"><i>8</i> html+css布局(2)</a>
+                            <a href="" class="list-group-item"><i>9</i> （巩固基础）HTML5 ④ 植物大戰僵尸</a>
+                            <a href="" class="list-group-item"><i>10</i> 前端资源汇总</a>
+                        </ol>
+                    </div>
+                    <!--笔记达人-->
+                    <div class="col-xs-6 col-md-12">
+                        <h3 class="titlebar" style="margin-top: 0;">
+                            <span class="glyphicon glyphicon-option-vertical">笔记达人</span>
+                        </h3>
+                        <ul class="article_talent">
+                            <li>
+                                <div>
+                                    <img class="media-left" src="bootstrap-3.3.5-dist/image/789.jpg">
+                                    <div class="media-body">
+                                        <span>
+                                            <a href="" target="_blank">母猪赛貂蝉</a>
+                                        </span>
+                                        <span>
+                                            <a  style="color: #999;" href="" target="_blank">JS匹配URL，点击直接跳转</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <img class="media-left" src="bootstrap-3.3.5-dist/image/128.jpg">
+                                    <div class="media-body">
+                                        <span>
+                                            <a href="" target="_blank">tianxiaofeng747</a>
+                                        </span>
+                                        <span>
+                                            <a  style="color: #999;" href="" target="_blank">曾经时光如少年</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <img class="media-left" src="bootstrap-3.3.5-dist/image/127.jpg">
+                                    <div class="media-body">
+                                        <span>
+                                            <a href="" target="_blank">FEAlex</a>
+                                        </span>
+                                        <span>
+                                            <a  style="color: #999;" href="" target="_blank">git基础1（gitbook阅读笔记）</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <img class="media-left" src="bootstrap-3.3.5-dist/image/00.jpg">
+                                    <div class="media-body">
+                                        <span>
+                                            <a href="" target="_blank">前端儿</a>
+                                        </span>
+                                        <span>
+                                            <a  style="color: #999;" href="" target="_blank">js下拉菜单模型</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <img class="media-left" src="bootstrap-3.3.5-dist/image/963.jpg">
+                                    <div class="media-body">
+                                        <span>
+                                            <a href="" target="_blank">关关之洲6610</a>
+                                        </span>
+                                        <span>
+                                            <a  style="color: #999;" href="" target="_blank">迷茫又纠结</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--页脚-->
+    <footer>
+        <!--页脚的第一排-->
+        <div id="footabout">
+            <a href="about/us" target="_blank">关于我们</a>
+            <a href="about/business" target="_blank">商务合作</a>
+            <a href="about/case" target="_blank">合作案例</a>
+            <a href="about/contact" target="_blank">商务联系</a>
+            <a href="about/regpact" target="_blank">注册协议</a>
+            <a href="about/disclaimer" target="_blank">免责声明</a>
+            <a href="about/privacy" target="_blank">版权隐私</a>
+            <a href="http://weibo.com/login.php" target="_blank">新浪微博</a>
+        </div>
+        <!--页脚的第二排-->
+        <p style="margin: 0;text-align: center;color: #aaa;background: none;padding:0;">"Copyright ©"
+            <a href="">W3Cfuns.com</a>
+            "All Rights Reserved."
+            <a href="http://www.miitbeian.gov.cn/">京ICP备10055601号-2</a>
+        </p>
+        <!--页脚的第三排-->
+        <div style="padding: 11px 0;height: 38px;text-align: center;overflow: hidden;">
+            <b>合作伙伴:</b>
+            <a href="https://www.upyun.com/zh/index.html" target="_blank">
+                <img src="bootstrap-3.3.5-dist/image/195822cyg228re97eg2s1l.png">
+            </a>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="bootstrap-3.3.5-dist/js/jquery.js"></script>
+    <script type="text/javascript" src="bootstrap-3.3.5-dist/js/zzsc.js"></script>
+    <script type="text/javascript" src="bootstrap-3.3.5-dist/js/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+</body>
+</html>
