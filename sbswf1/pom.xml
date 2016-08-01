@@ -5,7 +5,7 @@
 	<groupId>com.joshuait</groupId>
 	<artifactId>sbswf</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<properties>
 		<jetty.version>9.2.10.v20150310</jetty.version>
 		<spring.version>4.2.6.RELEASE</spring.version>
