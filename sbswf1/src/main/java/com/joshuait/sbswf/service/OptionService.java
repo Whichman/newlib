@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.joshuait.sbswf.dao.OptionMapper;
 import com.joshuait.sbswf.entity.Option;
+import com.joshuait.sbswf.entity.Post;
 
 @Component
 public class OptionService {
@@ -32,5 +33,7 @@ public class OptionService {
 	public void delete(Long id) {
 		optionMapper.delete(id);
 	}
+
+	
 
 }

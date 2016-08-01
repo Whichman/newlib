@@ -35,6 +35,14 @@
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	<!-- 上传文件 -->  
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  
+    <property name="defaultEncoding" value="utf-8" />  
+    <!-- 最大内存大小 -->  
+    <property name="maxInMemorySize" value="10240" /> 
+    <!-- 最大文件大小，-1为不限制大小 -->  
+    <property name="maxUploadSize" value="-1" />
+</bean> 
 	<!-- SpringMVC 配置 end/ -->
 
 	<mvc:default-servlet-handler/>
@@ -65,7 +73,7 @@
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.joshuait.sbswf.dao" />
 	</bean>
-	<!-- mybatis 配置 end/ -->
+	<!-- mybatis 配置 end/ --> 
 
 
 </beans>
