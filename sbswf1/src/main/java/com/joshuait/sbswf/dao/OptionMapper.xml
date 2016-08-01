@@ -19,14 +19,15 @@
 	</select>
 
 	<delete id="delete">
-		DELETE FROM wp_options WHERE option_id
-		=#{optionId}
+		DELETE 
+		FROM wp_options
+		 WHERE option_id = #{optionId}
 	</delete>
 
 	<update id="update" parameterType="com.joshuait.sbswf.entity.Option">
 		update wp_options
 		<set>
-
+			
 			<if test="optionName     != null">option_name = #{optionName },</if>
 			<if test="optionValue     != null">option_value = #{optionValue },</if>
 			<if test="autoLoad != null">autoload = #{autoLoad }</if>
@@ -69,5 +70,432 @@
 			
 		</where>
 	</select>
-
+	
+	
+	
+	<!-- 修改常规页面信息 -->
+	<update id="updateBlogname" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{blogname}
+		where option_name='blogname'
+	</update>
+	<update id="updateBlogdescription" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{blogdescription}
+		where option_name='blogdescription'
+	</update>
+	<update id="updateSiteurl" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{siteurl}
+		where option_name='siteurl'
+	</update>
+	<update id="updateHome" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{home}
+		where option_name='home'
+	</update>
+	<update id="updateAdminEmail" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{admin_email}
+		where option_name='admin_email'
+	</update>
+	<update id="updateRegister" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{users_can_register}
+		where option_name='users_can_register'
+	</update>
+	<update id="updateDefaultRole" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{default_role}
+		where option_name='default_role'
+	</update>
+	<update id="updateTimezoneString" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{timezone_string}
+		where option_name='timezone_string'
+	</update>
+	<update id="updateStartOfWeek" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{start_of_week}
+		where option_name='start_of_week'
+	</update>
+	<update id="updateWPLANG" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{WPLANG}
+		where option_name='WPLANG'
+	</update>
+	 
+	 <update id="updateDateFormatCustom" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{date_format_custom}
+		where option_name='date_format_custom'
+	</update>
+	<update id="updateTimeFormatCustom" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{time_format_custom}
+		where option_name='time_format_custom'
+	</update>
+	<update id="updateDateFormat" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{date_format}
+		where option_name='date_format'
+	</update>
+	<update id="updateTimeFormat" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{time_format}
+		where option_name='time_format'
+	</update>
+	
+	
+	<!-- 查询常规页面信息 -->
+	<select id="getBlogname"  resultMap="optionMap">
+		SELECT o.option_id,o.option_name,o.option_value
+		from wp_options o
+		where option_id=1
+	</select>
+	<select id="getBlogdescription"  resultMap="optionMap">
+		SELECT o.option_id,o.option_name,o.option_value
+		from wp_options o
+		where option_name = 'blogdescription'
+	</select>
+	<select id="getSiteurl"  resultMap="optionMap">
+		SELECT o.option_id,o.option_name,o.option_value
+		from wp_options o
+		where option_name = 'siteurl'
+	</select>
+	<select id="getHome"  resultMap="optionMap">
+		SELECT o.option_id,o.option_name,o.option_value
+		from wp_options o
+		where option_name = 'home'
+	</select>
+	<select id="getAdminEmail"  resultMap="optionMap">
+		SELECT o.option_id,o.option_name,o.option_value
+		from wp_options o
+		where option_name = 'admin_email'
+	</select>
+	<select id="getRegister"  resultMap="optionMap">
+		SELECT o.option_id,o.option_name,o.option_value
+		from wp_options o
+		where option_name = 'users_can_register'
+	</select>
+	<select id="getDefaultRole"  resultMap="optionMap">
+		SELECT o.option_id,o.option_name,o.option_value
+		from wp_options o
+		where option_name = 'default_role'
+	</select>
+	<select id="getTimezone"  resultMap="optionMap">
+		SELECT o.option_id,o.option_name,o.option_value
+		from wp_options o
+		where option_name = 'timezone_string'
+	</select>
+	<select id="getStartWeek"  resultMap="optionMap">
+		SELECT o.option_id,o.option_name,o.option_value
+		from wp_options o
+		where option_name = 'start_of_week'
+	</select>
+	<select id="getWPLANG"  resultMap="optionMap">
+		SELECT o.option_id,o.option_name,o.option_value
+		from wp_options o
+		where option_name = 'WPLANG'
+	</select>
+	<select id="getDateFormatCustom"  resultMap="optionMap">
+		SELECT o.option_id,o.option_name,o.option_value
+		from wp_options o
+		where option_name = 'date_format_custom'
+	</select>
+	<select id="getTimeFormatCustom"  resultMap="optionMap">
+		SELECT o.option_id,o.option_name,o.option_value
+		from wp_options o
+		where option_name = 'time_format_custom'
+	</select>
+	<select id="getDateFormat"  resultMap="optionMap">
+		SELECT o.option_id,o.option_name,o.option_value
+		from wp_options o
+		where option_name = 'date_format'
+	</select>
+	<select id="getTimeFormat"  resultMap="optionMap">
+		SELECT o.option_id,o.option_name,o.option_value
+		from wp_options o
+		where option_name = 'time_format'
+	</select>
+	
+	<!--查询撰写页面信息  -->
+	<select id="getDefaultCategory"  resultMap="optionMap">
+		SELECT o.option_value
+		from wp_options o
+		where option_name = 'default_category'
+	</select>
+	<select id="getDefaultPostFormat"  resultMap="optionMap">
+		SELECT o.option_value
+		from wp_options o
+		where option_name = 'default_post_format'
+	</select>
+	<select id="getMailserverUrl"  resultMap="optionMap">
+		SELECT o.option_value
+		from wp_options o
+		where option_name = 'mailserver_url'
+	</select>
+	<select id="getMailserverPort"  resultMap="optionMap">
+		SELECT o.option_value
+		from wp_options o
+		where option_name = 'mailserver_port'
+	</select>
+	<select id="getMailserverLogin"  resultMap="optionMap">
+		SELECT o.option_value
+		from wp_options o
+		where option_name = 'mailserver_login'
+	</select>
+	<select id="getMailserverPass"  resultMap="optionMap">
+		SELECT o.option_value
+		from wp_options o
+		where option_name = 'mailserver_pass'
+	</select>
+	<select id="getDefaultEmailCategory"  resultMap="optionMap">
+		SELECT o.option_value
+		from wp_options o
+		where option_name = 'default_email_category'
+	</select>
+	<select id="getPingSites"  resultMap="optionMap">
+		SELECT o.option_value
+		from wp_options o
+		where option_name = 'ping_sites'
+	</select>
+	<!-- 修改撰写页面的信息 -->
+	<update id="updateDefaultCategory" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{default_category}
+		where option_name='default_category'
+	</update>
+	<update id="updateDefaultPostFormat" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{default_post_format}
+		where option_name='default_post_format'
+	</update>
+	<update id="updatEmailserverUrl" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{mailserver_url}
+		where option_name='mailserver_url'
+	</update>
+	<update id="updatEmailserverPort" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{mailserver_port}
+		where option_name='mailserver_port'
+	</update>
+	<update id="updatEmailserverLogin" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{mailserver_login}
+		where option_name='mailserver_login'
+	</update>
+	<update id="updatEmailserverPass" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{mailserver_pass}
+		where option_name='mailserver_pass'
+	</update>
+	<update id="updatedeFaultEmailCategory" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{default_email_category}
+		where option_name='default_email_category'
+	</update>
+	<update id="updatePingSites" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{ping_sites}
+		where option_name='ping_sites'
+	</update>
+	<!-- 显示固定链接页面信息 -->
+	<select id="getSelection"  resultMap="optionMap">
+		SELECT o.option_value
+		from wp_options o
+		where option_name = 'selection'
+	</select>
+	<select id="getPreCatalog"  resultMap="optionMap">
+		SELECT o.option_value
+		from wp_options o
+		where option_name = 'pre_catalog'
+	</select>
+	<select id="getPreTag"  resultMap="optionMap">
+		SELECT o.option_value
+		from wp_options o
+		where option_name = 'pre_tag'
+	</select>
+<!-- 更新固定链接数据 -->
+<update id="updatSelection" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{selection}
+		where option_name='selection'
+	</update>
+	<update id="updatePreCatalog" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{pre_catalog}
+		where option_name='pre_catalog'
+	</update>
+	<update id="updatePreTag" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{pre_tag}
+		where option_name='pre_tag'
+	</update>
+	<!-- 阅读页面 -->
+	<select id="getSPostsPerPage"  resultMap="optionMap">
+		SELECT o.option_value
+		from wp_options o
+		where option_name = 'posts_per_page'
+	</select>
+	<select id="getPostsPerRss"  resultMap="optionMap">
+		SELECT o.option_value
+		from wp_options o
+		where option_name = 'posts_per_rss'
+	</select>
+	<update id="updatePostsPerPage" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{posts_per_page}
+		where option_name='posts_per_page'
+	</update>
+	<update id="updatePostsPerRss" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{posts_per_rss}
+		where option_name='posts_per_rss'
+	</update>
+	<!-- 讨论页面 -->
+	<select id="getCloseCommentsDaysOld"  resultMap="optionMap">
+		SELECT o.option_value
+		from wp_options o
+		where option_name = 'close_comments_days_old'
+	</select>
+	<select id="getThreadCommentsDepth"  resultMap="optionMap">
+		SELECT o.option_value
+		from wp_options o
+		where option_name = 'thread_comments_depth'
+	</select>
+	<select id="getCommentsPerPage"  resultMap="optionMap">
+		SELECT o.option_value
+		from wp_options o
+		where option_name = 'comments_per_page'
+	</select>	
+	<select id="getDefaultCommentsPage"  resultMap="optionMap">
+		SELECT o.option_value
+		from wp_options o
+		where option_name = 'default_comments_page'
+	</select>
+	<select id="getCommentOrder"  resultMap="optionMap">
+		SELECT o.option_value
+		from wp_options o
+		where option_name = 'comment_order'
+	</select>
+	<select id="getCommentMaxLinks"  resultMap="optionMap">
+		SELECT o.option_value
+		from wp_options o
+		where option_name = 'comment_max_links'
+	</select>
+	<select id="getModerationKeys"  resultMap="optionMap">
+		SELECT o.option_value
+		from wp_options o
+		where option_name = 'moderation_keys'
+	</select>
+	<select id="getBlacklistKeys"  resultMap="optionMap">
+		SELECT o.option_value
+		from wp_options o
+		where option_name = 'blacklist_keys'
+	</select>
+	
+	<update id="updateCloseCommentsDaysOld" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{close_comments_days_old}
+		where option_name='close_comments_days_old'
+	</update>
+	<update id="updateThreadCommentsDepth" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{thread_comments_depth}
+		where option_name='thread_comments_depth'
+	</update>
+	<update id="updateCommentsPerPage" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{comments_per_page}
+		where option_name='comments_per_page'
+	</update>
+	<update id="updateDefaultCommentsPage" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{default_comments_page}
+		where option_name='default_comments_page'
+	</update>
+	<update id="updateCommentOrder" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{comment_order}
+		where option_name='comment_order'
+	</update>
+	<update id="updateCommentMaxLinks" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{comment_max_links}
+		where option_name='comment_max_links'
+	</update>
+	<update id="updateModerationKeys" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{moderation_keys}
+		where option_name='moderation_keys'
+	</update>
+	<update id="updateBlacklistKeys" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{blacklist_keys}
+		where option_name='blacklist_keys'
+	</update>
+	<!-- 媒体页面 -->
+	<select id="getThumbnailSizew"  resultMap="optionMap">
+		SELECT o.option_value
+		from wp_options o
+		where option_name = 'thumbnail_size_w'
+	</select>
+	<select id="getThumbnailSizeh"  resultMap="optionMap">
+		SELECT o.option_value
+		from wp_options o
+		where option_name = 'thumbnail_size_h'
+	</select>
+	<select id="getMediumSizew"  resultMap="optionMap">
+		SELECT o.option_value
+		from wp_options o
+		where option_name = 'medium_size_w'
+	</select>
+	<select id="getMediumSizeh"  resultMap="optionMap">
+		SELECT o.option_value
+		from wp_options o
+		where option_name = 'medium_size_h'
+	</select>
+	<select id="getLargeSizew"  resultMap="optionMap">
+		SELECT o.option_value
+		from wp_options o
+		where option_name = 'large_size_w'
+	</select>
+	<select id="getLargeSizeh"  resultMap="optionMap">
+		SELECT o.option_value
+		from wp_options o
+		where option_name = 'large_size_h'
+	</select>
+	
+	<update id="updateThumbnailSizew" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{thumbnail_size_w}
+		where option_name='thumbnail_size_w'
+	</update>
+	<update id="updateThumbnailSizeh" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{thumbnail_size_h}
+		where option_name='thumbnail_size_h'
+	</update>
+	<update id="updateMediumSizew" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{medium_size_w}
+		where option_name='medium_size_w'
+	</update>
+	<update id="updateMediumSizeh" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{medium_size_h}
+		where option_name='medium_size_h'
+	</update>
+	<update id="updateLargeSizew" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{large_size_w}
+		where option_name='large_size_w'
+	</update>
+	<update id="updateLargeSizeh" parameterType="com.joshuait.sbswf.entity.Option">
+		update wp_options
+		set option_value = #{large_size_h}
+		where option_name='large_size_h'
+	</update>
 </mapper>

@@ -36,8 +36,8 @@
 					<button type="submit" class="btn btn-default">
 						<span class="glyphicon glyphicon-search"> </span> 查 询
 					</button>
-					<a class="btn btn-primary navbar-btn" href="${ctx}/option/add"><span
-						class="glyphicon glyphicon-plus"> </span> 新 增 </a>
+					<a class="btn btn-primary navbar-btn" href="${ctx}/option/add">
+					<span class="glyphicon glyphicon-plus"> </span> 新 增 </a>
 				</form>
 			</div>
 		</div>
@@ -53,8 +53,8 @@
 					<td>${option.optionId}</td>
 					<td>${option.optionName}</td>
 					<td>${option.optionValue}</td>
-					<td><a href="${ctx}/option/delete/${option.optionId}">删除</a> <a
-						href="${ctx}/option/update/${option.optionId}">编辑</a></td>
+					<td><a href="${ctx}/option/delete/${option.optionId}">删除</a> 
+					<a href="${ctx}/option/update/${option.optionId}">编辑</a></td>
 				</tr>
 			</c:forEach>
 		</table>

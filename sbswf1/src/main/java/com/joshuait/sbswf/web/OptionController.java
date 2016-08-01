@@ -35,7 +35,7 @@ public class OptionController {
 		}
 		List<Option> optionList = optionService.search(option);
 		model.addAttribute("optionList", optionList);
-		model.addAttribute("successMsg", "查询成功");
+		model.addAttribute("message", "查询成功");
 		logger.info("end");
 		return "option/option-list";
 	}
@@ -61,6 +61,7 @@ public class OptionController {
 	public String updateSave(@ModelAttribute("option") Option option, RedirectAttributes redirectAttributes) {
 		logger.info(option.toString());
 		optionService.update(option);
+		
 		redirectAttributes.addFlashAttribute("message", "编辑成功");
 		return "redirect:/option/";
 	}
