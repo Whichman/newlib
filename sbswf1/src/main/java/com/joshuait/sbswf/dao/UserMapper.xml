@@ -14,10 +14,50 @@
 		<result column="user_registered" property="userRegistered" />
 		<result column="user_activation_key" property="userActivationKey" />
 		<result column="user_status" property="userStatus" />
-		<result column="user_login" property="displayName" />
+		<result column="display_name" property="displayName" />
+		<result column="post_author" property="postAuthor" />
+		<result column="h" property="h" />
 	</resultMap>
 
-	<select id="getById" parameterType="int" resultMap="userMapper">
+	<select id="getByUser" parameterType="com.joshuait.sbswf.entity.User"
+		resultMap="userMapper">
+		select t.*,count(t.id) as h FROM(
+			SELECT u.*, p.post_author FROM wp_users u
+			LEFT JOIN wp_posts p on p.post_author=u.id
+		) t 
+		<where>
+			<if test="id != null">
+				id = #{id}
+			</if>
+			<if test="userLogin != null and userLogin != ''">
+				OR user_login like #{userLogin}
+			</if>
+			<if test="userPass != null and userPass != ''">
+				OR user_pass like #{userPass}
+			</if>
+			<if test="userNicename != null and userNicename != ''">
+				OR user_nicename like #{userNicename}
+			</if>
+			<if test="userEmail != null and userEmail != ''">
+				OR user_email like #{userEmail}
+			</if>
+			<if test="userRegistered != null and userRegistered != ''">
+				OR user_registered like #{userRegistered}
+			</if>
+			<if test="userActivationKey != null and userActivationKey != ''">
+				OR user_activation_key like #{userActivationKey}
+			</if>
+			<if test="userStatus != null and userStatus != ''">
+				OR user_status like #{userStatus}
+			</if>
+			<if test="displayName != null and displayName != ''">
+				OR display_name like #{displayName}
+			</if> 
+		</where>
+		GROUP BY t.id
+		</select>
+
+	<select id="getById" parameterType="Long" resultMap="userMapper">
 		select * from
 		wp_users where id =#{id}
 	</select>

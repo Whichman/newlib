@@ -34,6 +34,8 @@ public interface PostMapper {
 
 	public List<Post> getByComment(Long id);
 
+	public List<Post> getByComment2(Post post);
+	
 	public Post getByTerm(Long id);
 	
 	public Post getByTerm2(Long id);
@@ -68,6 +70,5 @@ public interface PostMapper {
 	public Post getNewChat();
 
 	public void getChatCounts(Long id);
-
 
 }

@@ -1,10 +1,8 @@
 package com.joshuait.sbswf.entity;
 
-import java.io.Serializable;
 import java.util.Date;
 
-
-public class User implements Serializable {
+public class User {
 	private Long id;
 	private String userLogin;
 	private String userPass;
@@ -14,6 +12,32 @@ public class User implements Serializable {
 	private String userActivationKey;
 	private Integer userStatus;
 	private String displayName;
+	private Long postAuthor;
+	private Long h;
+
+	public Long getH() {
+		return h;
+	}
+
+	public void setH(Long h) {
+		this.h = h;
+	}
+
+	public String getUserActivationKey() {
+		return userActivationKey;
+	}
+
+	public void setUserActivationKey(String userActivationKey) {
+		this.userActivationKey = userActivationKey;
+	}
+
+	public Long getPostAuthor() {
+		return postAuthor;
+	}
+
+	public void setPostAuthor(Long postAuthor) {
+		this.postAuthor = postAuthor;
+	}
 
 	public Long getId() {
 		return id;
@@ -89,11 +113,10 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Users [id=" + id + ", userLogin=" + userLogin + ", userPass=" + userPass + ", userNicename="
+		return "User [id=" + id + ", userLogin=" + userLogin + ", userPass=" + userPass + ", userNicename="
 				+ userNicename + ", userEmail=" + userEmail + ", userRegistered=" + userRegistered
-				+ ", userActivation_key=" + userActivationKey + ", userStatus=" + userStatus + ", displayName="
-				+ displayName + "]";
+				+ ", userActivationKey=" + userActivationKey + ", userStatus=" + userStatus + ", displayName="
+				+ displayName + ", postAuthor=" + postAuthor + "]";
 	}
-
 
 }

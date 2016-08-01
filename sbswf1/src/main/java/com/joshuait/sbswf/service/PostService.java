@@ -74,10 +74,13 @@ public class PostService {
 	}
 
 	public List<Post> getByComment(Long id) {
-
-		return postMapper.getByComment(id);
+      return postMapper.getByComment(id);
 	}
 
+	public List<Post> getByComment2(Post post) {
+	      return postMapper.getByComment2(post);
+		}
+	
 	public Post getByTerm(Long id) {
 		return postMapper.getByTerm(id);
 	}
@@ -182,11 +185,10 @@ public class PostService {
 
 	
 	public List<Post> getComment(Long id) {
-
-			return postMapper.getComment(id);
-	
+        return postMapper.getComment(id);
 	}
 
+	
 	/**
 	 * 查询可以讨论的话题列表
 	 * @param id
@@ -217,5 +219,5 @@ public class PostService {
 	public void getChatCounts(Long id) {
 		postMapper.getChatCounts(id);
 	}
-
+	
 }
