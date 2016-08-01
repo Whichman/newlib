@@ -32,6 +32,8 @@ public class UserService {
 	public void delete(Long id) {
 		userMapper.delete(id);
 	}
-
-
+//查询后台用户页面
+	public List<User> getByUser(User user) {
+		return userMapper.getByUser(user);
+	}
 }

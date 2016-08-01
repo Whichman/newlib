@@ -32,7 +32,6 @@
 		<result column="name" property="name" />
 		<result column="comment_author" property="commentAuthor" />
 		<result column="comment_content" property="commentContent" />
-		<result column="comment_date" property="commentDate" />
 		<result column="taxonomy" property="taxonomy" />
 		<result column="k" property="k" />
 		<result column="v" property="v" />
@@ -40,7 +39,7 @@
 		<result column="b" property="b" />
 		<result column="c" property="c" />
 		<result column="c2" property="c2" />
- </resultMap>
+	</resultMap>
 
 	<select id="getById" parameterType="long" resultMap="postMap">
 		select *
@@ -166,15 +165,6 @@
 			<if test="commentCount !=  null and commentCount !=  ''">
 				OR comment_count like #{commentCount}
 			</if>
-			<if test="commentAuthor !=  null and commentAuthor !=  ''">
-				OR comment_author like #{commentAuthor}
-			</if>
-			<if test="commentContent !=  null and commentContent !=  ''">
-				OR comment_content like #{commentContent}
-			</if>
-			<if test="commentDate !=  null and commentDate !=  ''">
-				OR comment_date like #{commentDate}
-			</if>
 		</where>
 	</select>
 	<!-- 首页的最新笔记 -->
@@ -254,11 +244,12 @@
 	<!-- 笔记详情里的评论人和评论内容 评论总数 -->
 	<select id="getByComment" parameterType="com.joshuait.sbswf.entity.Post"
 		resultMap="postMap">
-		select p.id,c.comment_author,c.comment_content,c.comment_date,p.post_title FROM
+		select p.id,c.comment_author,c.comment_content FROM
 		wp_comments c
 		LEFT JOIN wp_posts p ON c.comment_post_id = p.id
 		WHERE
-		p.post_type = '笔记' 
+		p.post_type = '笔记' and
+		p.id = #{id}
 		order by c.comment_date desc
 	</select>
 	<select id="getByLou" parameterType="com.joshuait.sbswf.entity.Post"
@@ -273,7 +264,6 @@
 		WHERE p.post_type = '笔记' and
 		p.id = #{id}) h
 	</select>
-
 	<!-- 获取笔记详情里的分类 -->
 	<select id="getByTerm" parameterType="com.joshuait.sbswf.entity.Post"
 		resultMap="postMap">
@@ -434,94 +424,4 @@
 		p.post_author=u.id
 		WHERE p.post_type = '话题' and p.id = #{id}
 	</select>
-		
-	<!-- 查询后台的评论作者、内容、评论文章和时间 -->
-	<select id="getByComment2" parameterType="com.joshuait.sbswf.entity.Post"
-		resultMap="postMap">
-		select p.id,c.comment_author,c.comment_content,c.comment_date,p.post_title FROM
-		wp_comments c
-		LEFT JOIN wp_posts p ON c.comment_post_id = p.id
-		<where>
-			<if test="id !=  null">
-				OR id like #{id}
-			</if>
-			<if test="postAuthor !=  null and postAuthor !=  ''">
-				OR post_author like #{postAuthor}
-			</if>
-			<if test="postDate !=  null and postDate !=  ''">
-				OR post_date like #{postDate}
-			</if>
-			<if test="postDateGmt !=  null and postDateGmt !=  ''">
-				OR post_date_gmt like #{postDateGmt}
-			</if>
-			<if test="postContent !=  null and postContent !=  ''">
-				OR post_content like #{postContent}
-			</if>
-			<if test="postTitle !=  null and postTitle !=  ''">
-				OR post_title like #{postTitle}
-			</if>
-			<if test="postExcerpt !=  null and postExcerpt !=  ''">
-				OR post_excerpt like #{postExcerpt}
-			</if>
-			<if test="postStatus !=  null and postStatus !=  ''">
-				OR post_status like #{postStatus}
-			</if>
-			<if test="pingStatus !=  null and pingStatus !=  ''">
-				OR ping_status like #{pingStatus}
-			</if>
-			<if test="postPassword !=  null and postPassword !=  ''">
-				OR post_password like #{postPassword}
-			</if>
-			<if test="postName !=  null and postName !=  ''">
-				OR post_name like #{postName}
-			</if>
-			<if test="toPing !=  null and toPing !=  ''">
-				OR to_ping like #{toPing}
-			</if>
-			<if test="pinged !=  null and pinged !=  ''">
-				OR pinged like #{Pinged}
-			</if>
-			<if test="postModified !=  null and postModified !=  ''">
-				OR post_modified like #{postModified}
-			</if>
-			<if test="postModifiedGmt !=  null and postModifiedGmt !=  ''">
-				OR post_modified_gmt like #{postModifiedGmt}
-			</if>
-			<if test="postContentFiltered !=  null and postContentFiltered !=  ''">
-				OR post_content_filtered like #{postContentFiltered}
-			</if>
-			<if test="postParent !=  null and postParent !=  ''">
-				OR post_parent like #{postParent}
-			</if>
-			<if test="Guid !=  null and Guid !=  ''">
-				OR guid like #{Guid}
-			</if>
-			<if test="menuOrder !=  null and menuOrder !=  ''">
-				OR menu_order like #{menuOrder}
-			</if>
-			<if test="postType !=  null and postType !=  ''">
-				OR post_type like #{postType}
-			</if>
-			<if test="postMimeType !=  null and postMimeType !=  ''">
-				OR post_mime_type like #{postMimeType}
-			</if>
-			<if test="commentStatus !=  null and commentStatus !=  ''">
-				OR comment_status like #{commentStatus}
-			</if>
-			<if test="commentCount !=  null and commentCount !=  ''">
-				OR comment_count like #{commentCount}
-			</if>
-			<if test="commentAuthor !=  null and commentAuthor !=  ''">
-				OR comment_author like #{commentAuthor}
-			</if>
-			<if test="commentContent !=  null and commentContent !=  ''">
-				OR comment_content like #{commentContent}
-			</if>
-			<if test="commentDate !=  null and commentDate !=  ''">
-				OR comment_date like #{commentDate}
-			</if> and p.post_type = '笔记' order by c.comment_date desc
-		</where>
-	</select>
-	
-	
 </mapper>

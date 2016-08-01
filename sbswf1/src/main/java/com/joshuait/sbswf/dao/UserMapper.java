@@ -18,4 +18,6 @@ public interface UserMapper {
 
 	public void delete(Long id);
 
+	//查询后台用户页面
+	public List<User> getByUser(User user);
 }

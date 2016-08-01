@@ -33,7 +33,8 @@ public class Post implements Serializable {
 	private String name;
 	private String commentAuthor;
 	private String commentContent;
-	private String taxonomy;
+	private Date commentDate;
+    private String taxonomy;
 	private Long k;
 	private Long v;
 	private Long a;
@@ -42,6 +43,20 @@ public class Post implements Serializable {
 	private Long c2;
 	
 
+	public Date getCommentDate() {
+		return commentDate;
+	}
+
+	public void setCommentDate(Date commentDate) {
+		this.commentDate = commentDate;
+	}
+	public static int getShortNumber() {
+		return short_number;
+	}
+
+	public static int getShortNumber1() {
+		return short_number1;
+	}
 	public Long getC2() {
 		return c2;
 	}
@@ -356,7 +371,10 @@ public class Post implements Serializable {
 				+ postContentFiltered + ", postParent=" + postParent + ", Guid=" + Guid + ", menuOrder=" + menuOrder
 				+ ", postType=" + postType + ", postMimeType=" + postMimeType + ", commentStatus=" + commentStatus
 				+ ", commentCount=" + commentCount + ", displayName=" + displayName + ", viewCount=" + viewCount
-				+ ", name=" + name + ", commentAuthor=" + commentAuthor + ", commentContent=" + commentContent + "]";
+				+ ", name=" + name + ", commentAuthor=" + commentAuthor + ", commentContent=" + commentContent
+				+ ", commentDate=" + commentDate + ", taxonomy=" + taxonomy + ", k=" + k + ", v=" + v + ", a=" + a
+				+ ", b=" + b + ", c=" + c + ", c2=" + c2 + "]";
 	}
 
+	
 }
