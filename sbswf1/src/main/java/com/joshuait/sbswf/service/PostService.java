@@ -223,6 +223,11 @@ public class PostService {
 		return null;
 	}
 
+	public Post getAdd() {
+		
+		return null;
+	}
+
 	
 
 }

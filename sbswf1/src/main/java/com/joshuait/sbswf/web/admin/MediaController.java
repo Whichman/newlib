@@ -57,7 +57,7 @@ public class MediaController {
 	@RequestMapping(value = "add")
 	public String add(Model model) {
 
-		
+		Post add = postService.getAdd();
 		
 		
 		return "admin/add";
