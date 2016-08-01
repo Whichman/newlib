@@ -218,4 +218,16 @@ public class PostService {
 		postMapper.getChatCounts(id);
 	}
 
+	public List<Post> getPrint() {
+		
+		return null;
+	}
+
+	public Post getAdd() {
+		
+		return null;
+	}
+
+	
+
 }
