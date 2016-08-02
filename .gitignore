@@ -14,3 +14,5 @@
 
 /sbswf1/.classpath
 /sbswf1/.project
+/sbswf1/src/main/webapp/static
+hs_err_pid*
