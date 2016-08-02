@@ -33,6 +33,7 @@
 		<result column="comment_author" property="commentAuthor" />
 		<result column="comment_content" property="commentContent" />
 		<result column="comment_date" property="commentDate" />
+		<result column="comment_id" property="commentId" />
 		<result column="taxonomy" property="taxonomy" />
 		<result column="k" property="k" />
 		<result column="v" property="v" />
@@ -86,7 +87,7 @@
 		insert into wp_posts
 		(post_author,post_date,post_date_gmt,post_content,post_title,post_excerpt,post_status,ping_status,post_password
 		,post_name,to_ping,pinged,post_modified,post_modified_gmt,post_content_filtered,post_parent,guid,menu_order,post_type
-		,post_mime_type,comment_status,comment_count)
+		,post_mime_type,comment_status,comment_count,)
 		values
 		(#{postAuthor},#{postDate},#{postDateGmt},#{postContent},#{postTitle},#{postExcerpt},#{postStatus},#{pingStatus},#{postPassword},#{postName},#{toPing},
 		#{Pinged},#{postModified},#{postModifiedGmt},#{postContentFiltered},#{postParent},#{Guid},#{menuOrder},#{postType},
@@ -438,7 +439,7 @@
 	<!-- 查询后台的评论作者、内容、评论文章和时间 -->
 	<select id="getByComment2" parameterType="com.joshuait.sbswf.entity.Post"
 		resultMap="postMap">
-		select p.id,c.comment_author,c.comment_content,c.comment_date,p.post_title FROM
+		select p.id,c.comment_id,c.comment_author,c.comment_content,c.comment_date,p.post_title FROM
 		wp_comments c
 		LEFT JOIN wp_posts p ON c.comment_post_id = p.id
 		<where>
