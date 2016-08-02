@@ -186,6 +186,8 @@ public interface OptionMapper {
 	public void updateLargeSizew(Option option);
 
 	public void updateLargeSizeh(Option option);
+
+	public void inserts(Option option);
 	
 	
 }

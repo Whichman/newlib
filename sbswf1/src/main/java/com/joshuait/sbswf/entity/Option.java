@@ -23,8 +23,9 @@ public class Option implements Serializable {
 	private String WPLANG;
 	private String   date_format_custom;
 	private String   time_format_custom;
-	private String   date_format;
-	private String   time_format;
+	private Date   date_format;
+	private Date   time_format;
+
 	//撰写页面
 	private String default_category;
 	private String default_post_format;
@@ -57,6 +58,10 @@ public class Option implements Serializable {
 	private String selection;
 	private String pre_catalog;
 	private String pre_tag;
+	
+	
+	
+	
 	public Long getOptionId() {
 		return optionId;
 	}
@@ -153,16 +158,16 @@ public class Option implements Serializable {
 	public void setTime_format_custom(String time_format_custom) {
 		this.time_format_custom = time_format_custom;
 	}
-	public String getDate_format() {
+	public Date getDate_format() {
 		return date_format;
 	}
-	public void setDate_format(String date_format) {
+	public void setDate_format(Date date_format) {
 		this.date_format = date_format;
 	}
-	public String getTime_format() {
+	public Date getTime_format() {
 		return time_format;
 	}
-	public void setTime_format(String time_format) {
+	public void setTime_format(Date time_format) {
 		this.time_format = time_format;
 	}
 	public String getDefault_category() {
@@ -335,12 +340,12 @@ public class Option implements Serializable {
 				+ users_can_register + ", default_role=" + default_role + ", timezone_string=" + timezone_string
 				+ ", start_of_week=" + start_of_week + ", WPLANG=" + WPLANG + ", date_format_custom="
 				+ date_format_custom + ", time_format_custom=" + time_format_custom + ", date_format=" + date_format
-				+ ", time_format=" + time_format + ", default_category=" + default_category + ", default_post_format="
-				+ default_post_format + ", mailserver_url=" + mailserver_url + ", mailserver_port=" + mailserver_port
-				+ ", mailserver_login=" + mailserver_login + ", mailserver_pass=" + mailserver_pass
-				+ ", default_email_category=" + default_email_category + ", ping_sites=" + ping_sites
-				+ ", posts_per_page=" + posts_per_page + ", posts_per_rss=" + posts_per_rss
-				+ ", close_comments_days_old=" + close_comments_days_old + ", thread_comments_depth="
+				+ ", time_format=" + time_format + ", default_category="
+				+ default_category + ", default_post_format=" + default_post_format + ", mailserver_url="
+				+ mailserver_url + ", mailserver_port=" + mailserver_port + ", mailserver_login=" + mailserver_login
+				+ ", mailserver_pass=" + mailserver_pass + ", default_email_category=" + default_email_category
+				+ ", ping_sites=" + ping_sites + ", posts_per_page=" + posts_per_page + ", posts_per_rss="
+				+ posts_per_rss + ", close_comments_days_old=" + close_comments_days_old + ", thread_comments_depth="
 				+ thread_comments_depth + ", comments_per_page=" + comments_per_page + ", default_comments_page="
 				+ default_comments_page + ", comment_order=" + comment_order + ", comment_max_links="
 				+ comment_max_links + ", moderation_keys=" + moderation_keys + ", blacklist_keys=" + blacklist_keys
@@ -349,6 +354,7 @@ public class Option implements Serializable {
 				+ large_size_w + ", large_size_h=" + large_size_h + ", selection=" + selection + ", pre_catalog="
 				+ pre_catalog + ", pre_tag=" + pre_tag + "]";
 	}
+	
 	
 	
 }

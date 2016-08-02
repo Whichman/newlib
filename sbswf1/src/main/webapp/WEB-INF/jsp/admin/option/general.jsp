@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <c:set var="option" value="${blogname}" />
 <c:set var="option2" value="${blogdescription}" />
@@ -79,12 +80,12 @@ timerRunning = true;}
                 <li class="active">
                     <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">设置</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li class="active"><a href="${ctx}/admin/general">常规</a></li>
-                        <li><a href="${ctx}/admin/writting">撰写</a></li>
-                        <li><a href="${ctx}/admin/read">阅读</a></li>
-                        <li><a href="${ctx}/admin/discuss">讨论</a></li>
-                        <li><a href="${ctx}/admin/media">多媒体</a></li>
-						<li><a href="${ctx}/admin/fixed_link">固定链接</a></li>
+                        <li class="active"><a href="${ctx}/admin/option/general">常规</a></li>
+                        <li><a href="${ctx}/admin/option/writting">撰写</a></li>
+                        <li><a href="${ctx}/admin/option/read">阅读</a></li>
+                        <li><a href="${ctx}/admin/option/discuss">讨论</a></li>
+                        <li><a href="${ctx}/admin/option/media">多媒体</a></li>
+						<li><a href="${ctx}/admin/option/fixed_link">固定链接</a></li>
                     </ul>
                 </li>
             </ul>
@@ -226,7 +227,7 @@ timerRunning = true;}
 	                        <c:if test="${!empty message}">
 								<p class="alert alert-success" role="alert">${message}</p>
 							</c:if>                       
-                            <form method="post" class="form-horizontal" action="${ctx}/admin/update">
+                            <form method="post" class="form-horizontal" action="${ctx}/admin/option/update">
                                 <div class="form-group">
 									<label class="col-sm-2 control-label" for="blogname">站点标题</label>
                                     <div class="col-sm-10">
@@ -492,14 +493,18 @@ timerRunning = true;}
                                         <div>
 											<label>
 												<input type="radio" name='date_format' value="Y年n月j日" />
-												<span class="date-time-text format-i18n"> 2016年7月25日</span>
+												<span class="date-time-text format-i18n">
+												 <fmt:formatDate pattern="yyyy年MM月dd"
+													value="${option11.date_format}" /></span>
 												<code>Y年n月j日</code>
 											</label>
 										</div>
                                         <div>
 											<label>
-												<input type="radio" name='date_format' value="${option11.optionValue}" checked="checked"/>
-												<span class="date-time-text format-i18n">2016-07-25</span>
+												<input type="radio" name='date_format' value="Y-m-d" checked="checked"/>
+												<span class="date-time-text format-i18n">
+												<fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss"
+													value="${option11.date_format}" />2016-07-25</span>
 												<code>Y-m-d</code>
 											</label>
 										</div>
@@ -534,8 +539,10 @@ timerRunning = true;}
                                     <div class="col-sm-10">                                      
                                         <div>
 											<label>
-												<input type="radio" name='time_format' value="${option12.optionValue}" checked="checked"  >
-												<span class="date-time-text format-i18n">下午6:01</span>
+												<input type="radio" name='time_format' value="ag:i" checked="checked"  >
+												<span class="date-time-text format-i18n">
+												<fmt:formatDate pattern="HH:mm:ss"
+													value="${option12.time_format}" />下午6:01</span>
 												<code>ag:i</code>
 											</label>
 										</div>

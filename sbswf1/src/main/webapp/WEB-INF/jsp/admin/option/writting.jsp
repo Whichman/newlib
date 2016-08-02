@@ -2,18 +2,21 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
-<c:set var="t1" value="${thumbnailSizew}" />
-<c:set var="t2" value="${thumbnailSizeh}" />
-<c:set var="t3" value="${mediumSizew}" />
-<c:set var="t4" value="${mediumSizeh}" />
-<c:set var="t5" value="${largeSizew}" />
-<c:set var="t6" value="${largeSizeh}" />
+<c:set var="option1" value="${w1}" />
+<c:set var="option2" value="${w2}" />
+<c:set var="option3" value="${w3}" />
+<c:set var="option4" value="${w4}" />
+<c:set var="option5" value="${w5}" />
+<c:set var="option6" value="${w6}" />
+<c:set var="option7" value="${w7}" />
+<c:set var="option8" value="${w8}" />
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>w3c | 设置-媒体选项</title>
+    <title>w3c | 设置-撰写</title>
     <link href="${ctx}/static/backstage/css/bootstrap.min.css" rel="stylesheet">
     <link href="${ctx}/static/backstage/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="${ctx}/static/backstage/css/plugins/iCheck/custom.css" rel="stylesheet">
@@ -48,15 +51,15 @@
                 <li class="active">
                     <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">设置</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li><a href="${ctx}/admin/general">常规</a></li>
-                        <li><a href="${ctx}/admin/writting">撰写</a></li>
-                        <li><a href="${ctx}/admin/read">阅读</a></li>
-                        <li><a href="${ctx}/admin/discuss">讨论</a></li>
-                        <li class="active"><a href="${ctx}/admin/media">多媒体</a></li>
-						<li><a href="${ctx}/admin/fixed_link">固定链接</a></li>
+                        <li><a href="${ctx}/admin/option/general">常规</a></li>
+                        <li class="active"><a href="${ctx}/admin/option/writting">撰写</a></li>
+                        <li><a href="${ctx}/admin/option/read">阅读</a></li>
+                        <li><a href="${ctx}/admin/option/discuss">讨论</a></li>
+                        <li><a href="${ctx}/admin/option/media">多媒体</a></li>
+						<li><a href="${ctx}/admin/option/fixed_link">固定链接</a></li>
                     </ul>
                 </li>
-            </ul>
+                </ul>
         </div>
     </nav>
         <div id="page-wrapper" class="gray-bg">
@@ -181,7 +184,7 @@
                 <div class="col-lg-12">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>媒体选项</small></h5>
+                            <h5>撰写设置</small></h5>
                             <div class="ibox-tools">
                                 <a class="collapse-link">
                                     <i class="fa fa-chevron-up"></i>
@@ -199,55 +202,103 @@
                             </div>
                         </div>
                         <div class="ibox-content">
-                            <form method="post" class="form-horizontal" action="${ctx}/admin/update6">
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">图像大小</label>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-10">
-										<p class="help-block m-b-none">
-											下面列出来的尺寸决定插入媒体库中的图像之最大尺寸。以像素为单位。
-										</p>
-                                    </div>
-                                </div>
-                                <div class="hr-line-dashed"></div>
-                                <div class="form-group">
-									<label class="col-sm-2 control-label">缩略图大小</label>
-                                    <div class="col-sm-10" >
-                                        <lable for="thumbnail_size_w">宽度</lable><input name="thumbnail_size_w" type="number" step="1" min="1" max="200" id="thumbnail_size_w" value="${t1.optionValue}" class="small-text" />
-                                        <lable  for="thumbnail_size_h">高度</lable><input name="thumbnail_size_h" type="number" step="1" min="1" max="200"  id="thumbnail_size_h" value="${t2.optionValue}" class="small-text" />
-                                    </div>
-                                    <label class="col-sm-10" >
-                                        <input type="checkbox" name="thumbnail_crop" id="thumbnail_crop" value="1" checked="checked"/>
-                                       <span>总是裁剪缩略图到这个尺寸（一般情况下，缩略图应保持原始尺寸）</span>
-                                    </label>
+                        <c:if test="${!empty message}">
+								<p class="alert alert-success" role="alert">${message}</p>
+							</c:if> 
+                            <form method="post" class="form-horizontal" action="${ctx}/admin/option/update2">
+							<div class="form-group">
+									<label class="col-lg-2 control-label" for="default_category">
+									默认文章分类目录</label>
+                                    <div class="col-lg-10">
+                                        <select  class="postform" id="default_category" name="default_category">
+												<option value="0">男</option>
+												<option value="${option1.optionValue}" select ="selelcted">女</option>
+												<option value="3">青年</option>
+												<option value="4">中年</option>
+												<option value="3">老年</option>
+												<option value="4">社会</option>
+												<option value="2">娱乐</option>
+												<option value="3">历史</option>
+												<option value="4">技术</option>
+										</select>										
+									</div>
                                 </div>
                                 <div class="hr-line-dashed"></div>
 								<div class="form-group">
-									<label class="col-sm-2 control-label">中等大小</label>
-									<div class="col-sm-10">
-                                        <lable for="medium_size_w">最大宽度</lable><input name="medium_size_w" type="number" step="1" min="1" max="500"  id="medium_size_w" value="${t3.optionValue}" class="small-text" />
-                                        <lable for="medium_size_h">最大高度</lable><input name="medium_size_h" type="number" step="1" min="1" max="500"  id="medium_size_h" value="${t4.optionValue}" class="small-text" />
-                                    </div>
-								</div>
+									<label class="col-lg-2 control-label" for ="default_post_format">默认文章形式</label>
+                                    <div class="col-lg-10">
+                                        <select id="default_post_format" name="default_post_format">
+												<option value="0">标准</option>
+												<option value="${option2.optionValue}" selected="selected">日志</option>
+												<option value="chat">聊天</option>
+												<option value="gallery">相册</option>
+												<option value="link">链接</option>
+												<option value="image">图像</option>
+												<option value="quote">引语</option>
+												<option value="status">状态</option>
+												<option value="video">视频</option>
+												<option value="audio">音频</option>
+											</select>										
+									</div>
+                                </div>
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label">大尺寸</label>
+									<label class="col-sm-2 control-label">通过电子邮件发布</label>
                                     <div class="col-sm-10">
-                                        <lable for="large_size_w">最大宽度</lable><input name="large_size_w" type="number" step="1" min="1" max="1024" id="large_size_w" value="${t5.optionValue}" class="small-text" />
-                                        <lable for="large_size_h">最大高度</lable><input name="large_size_h" type="number" step="1" min="1" max="1024" id="large_size_h" value="${t6.optionValue}" class="small-text" />
+										<span class="help-block m-b-none">
+										通过电子邮件发布设定能让您通过发送您文章的内容到WordPress来发布。此信箱接收到的任何信件都将被发布，所以将此地址保密是一个好主意。以下是一些随机字符串供您使用：
+                                            <kbd>AaFmT8D1</kbd>、<kbd>NctQ9xqC</kbd>、<kbd>JNIm6Qqh</kbd>。
+										</span>
                                     </div>
                                 </div>
-
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group">
-									<label class="col-lg-2 control-label">文件上传</label>
-                                    <div class="col-lg-10">
-                                        <lable for="uploads_use_yearmonth_folders">
-                                        <input type="checkbox" name="uploads_use_yearmonth_folders" id="uploads_use_yearmonth_folders" value="1" checked= "checked"/>
-										<span >以年-月目录形式组织上传内容。</span>
-                                        </lable>
+									<label class="col-sm-2 control-label">邮件服务器</label>
+                                    <div class="col-sm-10">
+										<input name="mailserver_url" type="text" id="mailserver_url" value="${option3.optionValue}" class="regular-text code" />
+									<label for="mailserver_port">端口</label>
+									<input name="mailserver_port" type="text" id="mailserver_port" value="${option4.optionValue}" class="small-text" /></div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+									<label class="col-sm-2 control-label">登录名</label>
+                                    <div class="col-sm-10">
+										<input type="text"name="mailserver_login" id="mailserver_login" value="${option5.optionValue}" class="regular-text ltr"/>
 									</div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">密码</label>
+                                    <div class="col-sm-10">
+										<input type="password"  name="mailserver_pass" id="mailserver_pass"value="${option6.optionValue}"  class="regular-text ltr"/>
+									</div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+								<div class="form-group">
+									<label class="col-lg-2 control-label" for="default_email_category">
+									默认邮件发表分类目录
+                                    </label>
+                                    <div class="col-lg-10">
+                                        <select class="postform" id="default_email_category" name="default_email_category">
+												<option value="${option7.optionValue}" select ="selelcted">男</option>
+												<option value="1" >女</option>
+												<option value="3">分类目录2</option>
+												<option value="4">&nbsp;&nbsp;&nbsp;分类目录2.1</option>
+										</select>										
+									</div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">更新服务</label>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-10">
+										<p class="help-block m-b-none" for="ping_sites">
+									       在您发表新文章时，WordPress会自动通知站点更新服务。要获取更多资讯，请参见Codex上的<a href=\"https://codex.wordpress.org/Update_Services\">更新服务</a>。用换行分隔多个服务URL。
+                                        </p>
+                                        <br/>
+                                        <textarea name="ping_sites" id="ping_sites" class="large-text code" rows="3" cols="40">${option8.optionValue}</textarea>
+                                    </div>
                                 </div>
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group">

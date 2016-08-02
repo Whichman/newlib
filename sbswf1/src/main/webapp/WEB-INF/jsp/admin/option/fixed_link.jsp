@@ -45,12 +45,12 @@
                 <li class="active">
                     <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">设置</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li><a href="${ctx}/admin/general">常规</a></li>
-                        <li><a href="${ctx}/admin/writting">撰写</a></li>
-                        <li><a href="${ctx}/admin/read">阅读</a></li>
-                        <li><a href="${ctx}/admin/discuss">讨论</a></li>
-                        <li><a href="${ctx}/admin/media">多媒体</a></li>
-						<li class="active"><a href="${ctx}/admin/fixed_link">固定链接</a></li>
+                        <li><a href="${ctx}/admin/option/general">常规</a></li>
+                        <li><a href="${ctx}/admin/option/writting">撰写</a></li>
+                        <li><a href="${ctx}/admin/option/read">阅读</a></li>
+                        <li><a href="${ctx}/admin/option/discuss">讨论</a></li>
+                        <li><a href="${ctx}/admin/option/media">多媒体</a></li>
+						<li class="active"><a href="${ctx}/admin/option/fixed_link">固定链接</a></li>
                     </ul>
                 </li>
             </ul>
@@ -196,7 +196,7 @@
                             </div>
                         </div>
                         <div class="ibox-content">
-                            <form method="post" class="form-horizontal" action="${ctx}/admin/update3">
+                            <form method="post" class="form-horizontal" action="${ctx}/admin/option/update3">
 								<div class="form-group">
 										<p class="help-block m-b-none">
 											WordPress让您能够为您的永久链接和存档建立自定义URL结构。自定义URL结构可以为您的链接提高美感、可用性和前向兼容性。这里有<a>一些可用的标签</a>，以及一些入门范例。

@@ -10,6 +10,8 @@
 		<result column="option_name" property="optionName" />
 		<result column="option_value" property="optionValue" />
 		<result column="autoload" property="autoLoad" />
+		<result column="date_format" property="date_format" />
+		<result column="time_format" property="time_format" />
 	</resultMap>
 
 	<select id="getById" parameterType="long" resultMap="optionMap">
@@ -70,8 +72,19 @@
 			
 		</where>
 	</select>
-	
-	
+	 <!-- 添加当前时间 -->
+	<insert id="inserts" parameterType="com.joshuait.sbswf.entity.Option"
+		useGeneratedKeys="true" keyProperty="optionId">
+		insert into wp_options
+		(		
+		date_format,
+		time_format
+		)
+		values		
+		#{date_format},
+		#{time_format}
+		)
+	</insert>
 	
 	<!-- 修改常规页面信息 -->
 	<update id="updateBlogname" parameterType="com.joshuait.sbswf.entity.Option">
@@ -209,12 +222,12 @@
 		where option_name = 'time_format_custom'
 	</select>
 	<select id="getDateFormat"  resultMap="optionMap">
-		SELECT o.option_id,o.option_name,o.option_value
+		SELECT option_value
 		from wp_options o
 		where option_name = 'date_format'
 	</select>
-	<select id="getTimeFormat"  resultMap="optionMap">
-		SELECT o.option_id,o.option_name,o.option_value
+	<select id="getTimeFormat" resultMap="optionMap">
+		SELECT option_value
 		from wp_options o
 		where option_name = 'time_format'
 	</select>

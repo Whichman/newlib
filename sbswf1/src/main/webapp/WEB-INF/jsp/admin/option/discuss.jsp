@@ -51,12 +51,12 @@
                 <li class="active">
                     <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">设置</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li><a href="${ctx}/admin/general">常规</a></li>
-                        <li><a href="${ctx}/admin/writting">撰写</a></li>
-                        <li><a href="${ctx}/admin/read">阅读</a></li>
-                        <li class="active"><a href="${ctx}/admin/discuss">讨论</a></li>
-                        <li><a href="${ctx}/admin/media">多媒体</a></li>
-						<li><a href="${ctx}/admin/fixed_link">固定链接</a></li>
+                        <li><a href="${ctx}/admin/option/general">常规</a></li>
+                        <li><a href="${ctx}/admin/option/writting">撰写</a></li>
+                        <li><a href="${ctx}/admin/option/read">阅读</a></li>
+                        <li class="active"><a href="${ctx}/admin/option/discuss">讨论</a></li>
+                        <li><a href="${ctx}/admin/option/media">多媒体</a></li>
+						<li><a href="${ctx}/admin/option/fixed_link">固定链接</a></li>
                     </ul>
                 </li>
             </ul>
@@ -205,7 +205,7 @@
                         	<c:if test="${!empty message}">
 								<p class="alert alert-success" role="alert">${message}</p>
 							</c:if>
-                            <form method="post" class="form-horizontal" action="${ctx}/admin/detial">
+                            <form method="post" class="form-horizontal" action="${ctx}/admin/option/detial">
 								<div class="form-group">
 									<label class="col-sm-2 control-label">默认文章设置</label>
 									<div class="col-sm-10">

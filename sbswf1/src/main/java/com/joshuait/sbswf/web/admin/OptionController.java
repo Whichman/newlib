@@ -1,6 +1,8 @@
 package com.joshuait.sbswf.web.admin;
 
 
+import java.util.Date;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +17,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.joshuait.sbswf.entity.Option;
 
 import com.joshuait.sbswf.service.OptionService;
-import com.joshuait.sbswf.web.OptionController;
 
 
 
 @Controller
-@RequestMapping(value = "/admin")
-public class AdminController {
+@RequestMapping(value = "/admin/option")
+public class OptionController {
 	private static final Logger logger = LoggerFactory.getLogger(OptionController.class);
 	
 	@Autowired
@@ -52,7 +53,13 @@ public class AdminController {
 		model.addAttribute("startWeek", startWeek);
 		Option WPLANG = optionService.getWPLANG();
 		model.addAttribute("WPLANG", WPLANG);
-		Option dateFormat = optionService.getDateFormat();
+		
+		
+		option.setDate_format(new Date());
+		option.setTime_format(new Date());
+		//optionService.inserts(option);
+		
+		Option dateFormat = optionService.getDateFormat();		
 		model.addAttribute("dateFormat", dateFormat);
 		Option timeFormat = optionService.getTimeFormat();
 		model.addAttribute("timeFormat", timeFormat);
@@ -61,8 +68,10 @@ public class AdminController {
 		Option timeFormatCustom = optionService.getTimeFormatCustom();
 		model.addAttribute("timeFormatCustom", timeFormatCustom);
 		
+		
+		
 		logger.info("end");
-		return "admin/general";                  
+		return "admin/option/general";                  
 	}
 
 	@RequestMapping(value = "update")
@@ -85,7 +94,7 @@ public class AdminController {
 		optionService.updateTimeFormat(option);
 		logger.info("end");
 		
-		return "admin/general";
+		return "redirect:/admin/option/general";//重定向，redirect:/***找到admin/option下的general方法
 	}
 //查询撰写页面信息
 	@RequestMapping(value = "writting")
@@ -108,7 +117,7 @@ public class AdminController {
 		Option w8 = optionService.getPingSites();
 		model.addAttribute("w8", w8);
 		logger.info("end");
-		return "admin/writting";
+		return "admin/option/writting";
 	}
 	
 	@RequestMapping(value = "update2")
@@ -125,7 +134,7 @@ public class AdminController {
 		optionService.updatePingSites(option);
 		logger.info("end");
 	
-		return "admin/writting";
+		return "redirect:/admin/option/writting";
 	}
 	@RequestMapping(value = "read")
 	public String read(@ModelAttribute("option") Option option, Model model) {
@@ -135,7 +144,7 @@ public class AdminController {
 		Option postsPerRss = optionService.getPostsPerRss();
 		model.addAttribute("postsPerRss", postsPerRss);
 		logger.info("end");
-		return "admin/read";
+		return "admin/option/read";
 	}
 	
 	@RequestMapping(value = "update4")
@@ -147,7 +156,7 @@ public class AdminController {
 		
 		logger.info("end");
 	
-		return "admin/read";
+		return "redirect:/admin/option/read";
 	}
 	@RequestMapping(value = "discuss")
 	public String discuss(@ModelAttribute("option") Option option, Model model) {
@@ -170,7 +179,7 @@ public class AdminController {
 		model.addAttribute("blacklistKeys", blacklistKeys);
 		
 		logger.info("end");
-		return "admin/discuss";
+		return "admin/option/discuss";
 	}
 	
 	@RequestMapping(value = "detial")
@@ -187,7 +196,7 @@ public class AdminController {
 		optionService.updateBlacklistKeys(option);
 		
 		logger.info("end");
-		return "admin/discuss";
+		return "redirect:/admin/option/discuss";
 	}
 	
 	@RequestMapping(value = "media")
@@ -206,7 +215,7 @@ public class AdminController {
 		Option largeSizeh = optionService.getLargeSizeh();
 		model.addAttribute("largeSizeh", largeSizeh);
 		logger.info("end");
-		return "admin/media";
+		return "admin/option/media";
 	}
 	
 	@RequestMapping(value = "update6")
@@ -222,7 +231,7 @@ public class AdminController {
 	
 		logger.info("end");
 	
-		return "admin/media";
+		return "redirect:/admin/option/media";
 	}
 	
 	@RequestMapping(value = "fixed_link")
@@ -235,7 +244,7 @@ public class AdminController {
 		Option preTag = optionService.getPreTag();
 		model.addAttribute("preTag", preTag);
 		logger.info("end");
-		return "admin/fixed_link";
+		return "admin/option/fixed_link";
 	}
 	@RequestMapping(value = "update3")
 	public String update3(@ModelAttribute("option") Option option, RedirectAttributes redirectAttributes) {
@@ -247,7 +256,7 @@ public class AdminController {
 		
 		logger.info("end");
 	
-		return "admin/fixed_link";
+		return "admin/option/fixed_link";
 	}
 
 

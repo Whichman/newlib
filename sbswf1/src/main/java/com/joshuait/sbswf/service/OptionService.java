@@ -357,6 +357,11 @@ public class OptionService {
 		optionMapper.updateLargeSizeh(option);
 	}
 
+	public void inserts(Option option) {
+		optionMapper.inserts(option);
+		
+	}
+
 
 	
 
