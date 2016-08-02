@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace的值为Dao的全类名（包名+类名） -->
+<mapper namespace="com.joshuait.sbswf.dao.TermTaxonomyMapper">
+
+	<resultMap id="termtaxonomyMap" type="com.joshuait.sbswf.entity.TermTaxonomy">
+		<id column="term_taxonomy_id" property="termTaxonomyId" />
+		<result column="term_id" property="termId" />
+		<result column="taxonomy" property="taxonomy" />
+		<result column="description" property="description" />
+		<result column="parent" property="parent" />
+		<result column="count" property="count" />
+	</resultMap>
+
+	<select id="getById" parameterType="long" resultMap="termtaxonomyMap">
+		select *
+		from
+		wp_term_taxonomy where term_taxonomy_id =#{termTaxonomyId}
+	</select>
+
+	<delete id="delete">
+		DELETE FROM wp_term_taxonomy WHERE term_taxonomy_id
+		=#{termTaxonomyId}
+	</delete>
+
+	<update id="update" parameterType="com.joshuait.sbswf.entity.TermTaxonomy">
+		update wp_term_taxonomy
+		<set>
+
+			<if test="termId     != null">term_id = #{termId },</if>
+			<if test="taxonomy     != null">taxonomy = #{taxonomy },</if>
+			<if test="description != null">description = #{description }</if>
+			<if test="parent != null">parent = #{parent }</if>
+			<if test="count != null">count = #{count }</if>
+
+		</set>
+		where term_taxonomy_id = #{termTaxonomyId}
+	</update>
+
+	<insert id="insert" parameterType="com.joshuait.sbswf.entity.TermTaxonomy"
+		useGeneratedKeys="true" keyProperty="termTaxonomyId">
+		insert into wp_term_taxonomy
+		(
+		term_id,
+		taxonomy,
+		description,
+		parent,
+		count
+		)
+		values
+		(#{termId },
+		#{taxonomy },
+		#{description },
+		#{parent },
+		#{count}
+		)
+	</insert>
+
+	<select id="search" parameterType="com.joshuait.sbswf.entity.TermTaxonomy"
+		resultMap="termtaxonomyMap">
+		select * from wp_term_taxonomy
+		<where>
+			<if test="termTaxonomyId         != null and termTaxonomyId !=  ''">
+				OR term_taxonomy_id like #{termTaxonomyId}
+			</if>
+			<if test="termId     != null and termId !=  ''">
+				OR term_id like #{termId }
+			</if>
+			<if test="taxonomy     != null and taxonomy !=  ''">
+				OR taxonomy like #{taxonomy }
+			</if>
+			<if test="description != null and description !=  ''">
+				OR description like #{description}
+			</if>
+			<if test="parent != null and parent !=  ''">
+				OR parent like #{parent}
+			</if>
+			<if test="count != null and count !=  ''">
+				OR count like #{count}
+			</if>
+
+		</where>
+	</select>
+
+</mapper>

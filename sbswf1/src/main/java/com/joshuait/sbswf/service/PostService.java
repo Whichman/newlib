@@ -219,5 +219,5 @@ public class PostService {
 	public void getChatCounts(Long id) {
 		postMapper.getChatCounts(id);
 	}
-	
+	public List<Post> getPrint() {
 }

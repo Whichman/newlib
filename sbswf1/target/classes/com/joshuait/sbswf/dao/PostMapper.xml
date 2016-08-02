@@ -32,8 +32,8 @@
 		<result column="name" property="name" />
 		<result column="comment_author" property="commentAuthor" />
 		<result column="comment_content" property="commentContent" />
-		<result column="comment_date" property="commentDate" />
 		<result column="comment_id" property="commentId" />
+		<result column="comment_date" property="commentDate" />
 		<result column="taxonomy" property="taxonomy" />
 		<result column="k" property="k" />
 		<result column="v" property="v" />
@@ -41,7 +41,7 @@
 		<result column="b" property="b" />
 		<result column="c" property="c" />
 		<result column="c2" property="c2" />
- </resultMap>
+	</resultMap>
 
 	<select id="getById" parameterType="long" resultMap="postMap">
 		select *
@@ -167,15 +167,6 @@
 			<if test="commentCount !=  null and commentCount !=  ''">
 				OR comment_count like #{commentCount}
 			</if>
-			<if test="commentAuthor !=  null and commentAuthor !=  ''">
-				OR comment_author like #{commentAuthor}
-			</if>
-			<if test="commentContent !=  null and commentContent !=  ''">
-				OR comment_content like #{commentContent}
-			</if>
-			<if test="commentDate !=  null and commentDate !=  ''">
-				OR comment_date like #{commentDate}
-			</if>
 		</where>
 	</select>
 	<!-- 首页的最新笔记 -->
@@ -255,11 +246,12 @@
 	<!-- 笔记详情里的评论人和评论内容 评论总数 -->
 	<select id="getByComment" parameterType="com.joshuait.sbswf.entity.Post"
 		resultMap="postMap">
-		select p.id,c.comment_author,c.comment_content,c.comment_date,p.post_title FROM
+		select p.id,c.comment_author,c.comment_content FROM
 		wp_comments c
 		LEFT JOIN wp_posts p ON c.comment_post_id = p.id
 		WHERE
-		p.post_type = '笔记' 
+		p.post_type = '笔记' and
+		p.id = #{id}
 		order by c.comment_date desc
 	</select>
 	<select id="getByLou" parameterType="com.joshuait.sbswf.entity.Post"
@@ -274,7 +266,6 @@
 		WHERE p.post_type = '笔记' and
 		p.id = #{id}) h
 	</select>
-
 	<!-- 获取笔记详情里的分类 -->
 	<select id="getByTerm" parameterType="com.joshuait.sbswf.entity.Post"
 		resultMap="postMap">
@@ -439,7 +430,7 @@
 	<!-- 查询后台的评论作者、内容、评论文章和时间 -->
 	<select id="getByComment2" parameterType="com.joshuait.sbswf.entity.Post"
 		resultMap="postMap">
-		select p.id,c.comment_id,c.comment_author,c.comment_content,c.comment_date,p.post_title FROM
+		select p.id,c.comment_author,c.comment_content,c.comment_date,p.post_title FROM
 		wp_comments c
 		LEFT JOIN wp_posts p ON c.comment_post_id = p.id
 		<where>
